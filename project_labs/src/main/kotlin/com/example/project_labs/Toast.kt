@@ -41,20 +41,22 @@ enum class Position {
 }
 
 enum class Animation {
-    Translate,
-    Fade
+    TRANSLATE,
+    FADE
 }
 
 class Config {
     var alpha = 0.9
     var openTime = 7000.0
-    var imageType = ImageStyle.CIRCLE
+    var imageType = ImageStyle.RECTANGLE
     var title = "TITLE"
     var message = "MESSAGE"
     var appName = "APP NAME"
+    var buttonReply = "Reply"
+    var buttonClose = "Close"
     var buttonBolean = true
-    var position = Position.LEFT_TOP
-    var animation = Animation.Translate
+    var position = Position.RIGHT_BOTTOM
+    var animation = Animation.TRANSLATE
     var notifyPath = "C:/Users/ccffc/Downloads/mixkit-guitar-notification-alert-2320.wav"
     var image = "https://nanosemantics.ai/wp-content/uploads/2019/12/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%B5%D1%82%D0%B5%D0%B9-1024x683.jpg"
 }
@@ -86,6 +88,16 @@ class Toast {
 
         fun setAppName(str: String): Builder {
             config.appName = str
+            return this
+        }
+
+        fun setTitleButton1(str: String): Builder {
+            config.buttonReply = str
+            return this
+        }
+
+        fun setTitleButton2(str: String): Builder {
+            config.buttonClose = str
             return this
         }
 
@@ -126,14 +138,20 @@ class Toast {
 
         root.style = "-fx-background-color: BEIGE;"
 
-        root.setPrefSize(Width, Height)
+//        root.setPrefSize(Width, Height)
         root.padding = Insets(7.0, 7.0, 7.0, 7.0)
 
         setImage()
 
+        val titleButtonReply = Label(config.buttonReply)
+        val titleButtonClose = Label(config.buttonClose)
+
         if (config.buttonBolean) {
-            var buttonReply = Button("Reply")
-            var buttonClose = Button("Close")
+            val buttonReply = Button()
+            val buttonClose = Button()
+            buttonReply.text = titleButtonReply.text
+            buttonClose.text = titleButtonClose.text
+
             buttonReply.style =
                 "-fx-font: normal bold 20px 'serif'; -fx-text-fill: green; -fx-background-color: #a8e7ff"
             buttonClose.style =
@@ -201,7 +219,7 @@ class Toast {
             }
         }
 
-        if (config.animation == Animation.Translate) {
+        if (config.animation == Animation.TRANSLATE) {
             val anim = TranslateTransition(Duration.millis(1500.0), root)
 
             when (config.position) {
@@ -240,7 +258,7 @@ class Toast {
     }
 
     private fun closeAnimation() {
-        if (config.animation == Animation.Translate) {
+        if (config.animation == Animation.TRANSLATE) {
             val anim = TranslateTransition(Duration.millis(1500.0), root)
 
             when (config.position) {
@@ -297,6 +315,8 @@ class SomeClass : Application() {
             .setTitle("TeamLead")
             .setMessage("Good!")
             .setAppName("Telegram")
+            .setTitleButton1("Replay")
+            .setTitleButton2("Close")
             .build()
         toast.start()
     }
