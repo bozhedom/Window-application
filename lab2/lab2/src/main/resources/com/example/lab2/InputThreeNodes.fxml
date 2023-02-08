@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+
+<fx:root fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="116.0" prefWidth="178.0" style="-fx-background-color: #C1A4AA; -fx-border-color: #B0878F; -fx-border-width: 3;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fx:id="imageView" fitHeight="178.0" fitWidth="178.0" layoutY="46.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" visible="false" y="70.0">
+            <viewport>
+                <Rectangle2D height="178.0" minY="178.0" />
+            </viewport>
+        </ImageView>
+        <GridPane layoutX="-1.0" prefHeight="116.0" prefWidth="178.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="174.0" minWidth="7.0" prefWidth="54.19996337890625" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="35.80003662109375" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="101.600048828125" minWidth="10.0" prefWidth="88.19999999999999" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="81.60001831054687" minHeight="10.0" prefHeight="40.99998779296875" vgrow="SOMETIMES" />
+                <RowConstraints fillHeight="false" maxHeight="77.59998168945313" minHeight="10.0" prefHeight="39.000018310546885" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="77.59998168945313" minHeight="10.0" prefHeight="38.199981689453125" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <AnchorPane fx:id="outputLinkHandle" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="39.0" styleClass="outputLinkHandle" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <children>
+                        <Circle fill="#ccdae7" layoutX="20.0" layoutY="19.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="41.0" prefWidth="66.0">
+                    <children>
+                        <Label fx:id="titleBar" layoutX="14.0" layoutY="14.0" text="Label" />
+                    </children>
+                </AnchorPane>
+                <Button fx:id="deleteButton" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="30.0" text="X" GridPane.columnIndex="2" />
+                <AnchorPane fx:id="firstLink" maxWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" GridPane.rowIndex="1">
+                    <children>
+                        <Circle fill="#ccdae7" layoutX="14.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="1.0" layoutY="-2.0" prefHeight="18.0" prefWidth="23.0" text="var1" textAlignment="RIGHT" translateX="3.0" translateY="8.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="secondLink" prefHeight="28.0" prefWidth="32.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <Circle fill="#ccdae7" layoutX="14.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="1.0" layoutY="-2.0" prefHeight="18.0" prefWidth="23.0" text="var2" textAlignment="RIGHT" translateX="3.0" translateY="8.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="thirdLink" maxWidth="85.0" prefHeight="38.0" prefWidth="85.0" GridPane.rowIndex="2">
+                    <children>
+                        <Circle fill="#ccdae7" layoutX="21.0" layoutY="14.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="8.0" layoutY="-2.0" prefHeight="18.0" prefWidth="23.0" text="var3" textAlignment="RIGHT" translateX="3.0" translateY="8.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </GridPane>
+    </children>
+</fx:root>
